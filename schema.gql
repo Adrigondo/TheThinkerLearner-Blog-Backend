@@ -2,6 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""user"""
+type UserModel {
+  id: ID!
+  name: String!
+  age: Int!
+  breed: String!
+}
+
 type Query {
   ImGreeting: String!
+  users: [UserModel!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): UserModel!
+}
+
+input CreateUserInput {
+  name: String!
+  age: Int!
+  breed: String!
 }

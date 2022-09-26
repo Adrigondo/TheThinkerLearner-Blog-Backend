@@ -5,15 +5,24 @@ import { type } from 'os';
 export class UserModel {
   @Field(type => ID)
   id: string;
-
-  @Field()
-  name: string;
-
-  @Field(type=>Int)
-  age: number;
   
   @Field()
-  breed: string;
+  username!: string;
+
+  @Field()
+  email!: string;
+
+  @Field()
+  password!: string;
+
+  @Field()
+  firstname!: string;
+
+  @Field()
+  lastname!: string;
+
+  @Field()
+  birthday!: Date;
 
   /* @Field(type => ID)
   id: string;

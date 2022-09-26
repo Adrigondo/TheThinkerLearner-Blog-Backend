@@ -5,10 +5,18 @@
 """user"""
 type UserModel {
   id: ID!
-  name: String!
-  age: Int!
-  breed: String!
+  username: String!
+  email: String!
+  password: String!
+  firstname: String!
+  lastname: String!
+  birthday: DateTime!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Query {
   ImGreeting: String!
@@ -20,7 +28,10 @@ type Mutation {
 }
 
 input CreateUserInput {
-  name: String!
-  age: Int!
-  breed: String!
+  username: String!
+  email: String!
+  password: String!
+  firstname: String!
+  lastname: String!
+  birthday: DateTime!
 }

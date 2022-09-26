@@ -7,17 +7,17 @@ import { UsersService } from './users.service';
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
-  @Query(()=>String)
+  @Query(()=>String!)
   async ImGreeting(){
     return 'hello';
   }
 
-  @Query(()=>[UserModel])
+  @Query(()=>[UserModel]!)
   async users(){
     return this.usersService.findAll();
   }
 
-  @Mutation(()=>UserModel)
+  @Mutation(()=>UserModel!)
   async createUser(@Args('input') input:CreateUserInput){
     return this.usersService.create(input);
   }

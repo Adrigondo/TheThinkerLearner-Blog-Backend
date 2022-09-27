@@ -1,5 +1,5 @@
 # compiled output
-#/dist
+/dist
 /node_modules
 
 # Logs
@@ -12,7 +12,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # ENVIROMENTS AND KEYS
-*.env
+/*.env
 
 # OS
 .DS_Store

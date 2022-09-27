@@ -17,6 +17,12 @@ export class NewsModel {
   @Field()
   picture: string;
 
+  @Field()
+  createdAt: Date;
+  
+  @Field()
+  updatedAt: Date;
+
   /* @Field(type=>User)
   @Type(()=>User)
   author: User; */

@@ -24,6 +24,8 @@ type NewsModel {
   title: String!
   content: String!
   picture: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type Query {

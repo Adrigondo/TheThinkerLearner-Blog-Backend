@@ -19,12 +19,12 @@ export class News {
   @Prop()
   picture: string;
 
-  @Prop({
+  /* @Prop({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   })
   @Type(()=>User)
-  author: User;
+  author: User; */
 
 }
 

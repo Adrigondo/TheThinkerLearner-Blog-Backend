@@ -4,26 +4,14 @@ import { type } from 'os';
 
 @InputType()
 export class CreateNewsInput {
-  @Field(type => ID)
-  id: string;
 
   @Field()
-  newsname: string;
+  @IsOptional()
+  title: string;
 
   @Field()
-  email: string;
-
-  @Field()
-  password: string;
-
-  @Field()
-  firstname: string;
-
-  @Field()
-  lastname: string;
-
-  @Field()
-  birthday: Date;
+  @IsOptional()
+  content: string;
 
   @Field()
   @IsOptional()

@@ -25,15 +25,4 @@ export class CreateUserInput {
   @IsOptional()
   picture?: string;
   
-  /* @Field()
-  @MaxLength(30)
-  title: string;
-
-  @Field({ nullable: true })
-  @IsOptional()
-  @Length(30, 255)
-  description?: string;
-
-  @Field(type => [String])
-  ingredients: string[]; */
 }

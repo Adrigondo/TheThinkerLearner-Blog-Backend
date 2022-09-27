@@ -29,7 +29,8 @@ type NewsModel {
 type Query {
   getUser(id: String!): UserModel!
   getUsers: [UserModel!]!
-  getNews: [NewsModel!]!
+  getNews(id: String!): NewsModel!
+  getAllNews: [NewsModel!]!
 }
 
 type Mutation {
@@ -37,6 +38,8 @@ type Mutation {
   updateUser(updateUserInput: UpdateUserInput!): UserModel!
   removeUser(id: String!): UserModel!
   createNews(input: CreateNewsInput!): NewsModel!
+  updateNews(updateNewsInput: UpdateNewsInput!): NewsModel!
+  removeNews(id: String!): NewsModel!
 }
 
 input CreateUserInput {
@@ -61,12 +64,14 @@ input UpdateUserInput {
 }
 
 input CreateNewsInput {
+  title: String!
+  content: String!
+  picture: String!
+}
+
+input UpdateNewsInput {
   id: ID!
-  newsname: String!
-  email: String!
-  password: String!
-  firstname: String!
-  lastname: String!
-  birthday: DateTime!
+  title: String!
+  content: String!
   picture: String!
 }

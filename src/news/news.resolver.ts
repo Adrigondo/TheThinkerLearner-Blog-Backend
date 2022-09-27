@@ -1,5 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateNewsInput } from './dto/create-news.input';
+import { UpdateNewsInput } from './dto/update-news.input';
 import { NewsModel } from './models/news.model';
 import { NewsService } from './news.service';
 
@@ -7,13 +8,30 @@ import { NewsService } from './news.service';
 export class NewsResolver {
   constructor(private readonly newsService: NewsService) {}
 
+  
+  @Query(() => NewsModel)
+  async getNews(@Args('id') id: string) {
+    return this.newsService.findOne(id);
+  }
+
   @Query(()=>[NewsModel])
-  async getNews(){
+  async getAllNews(){
     return this.newsService.findAll();
   }
 
   @Mutation(()=>NewsModel)
-  async createNews(@Args('input') input:CreateNewsInput){
-    return this.newsService.create(input);
+  async createNews(@Args('input') createNewsInput:CreateNewsInput){
+    return this.newsService.create(createNewsInput);
+  }
+
+
+  @Mutation(() => NewsModel)
+  async updateNews(@Args('updateNewsInput') updateNewsInput: UpdateNewsInput) {
+    return this.newsService.update(updateNewsInput.id, updateNewsInput);
+  }
+
+  @Mutation(() => NewsModel)
+  async removeNews(@Args('id') id: string) {
+    return this.newsService.remove(id);
   }
 }

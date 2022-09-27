@@ -1,27 +1,46 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Type, Transform, Exclude } from 'class-transformer';
+import { News } from 'src/news/schemas/news.schema';
 
 export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop()
-  username!: string;
+  @Transform(({ value }) => value.toString())
+  _id: string;
 
   @Prop()
-  email!: string;
+  username: string;
+
+  @Prop({ unique: true })
+  email: string;
 
   @Prop()
-  password!: string;
+  @Exclude()
+  password: string;
 
   @Prop()
-  firstname!: string;
+  firstname: string;
 
   @Prop()
-  lastname!: string;
+  lastname: string;
 
   @Prop()
-  birthday!: Date;
+  birthday: Date;
+  
+  @Prop({default:null})
+  picture: string;
+  
+  @Type(() => News)
+  news: News[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
+/* UserSchema.virtual('news', {
+  ref: 'News',
+  localField: '_id',
+  foreignField: 'author',
+}); */
+
+// export {UserSchema};

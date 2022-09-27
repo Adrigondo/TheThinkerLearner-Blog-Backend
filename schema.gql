@@ -11,6 +11,7 @@ type UserModel {
   firstname: String!
   lastname: String!
   birthday: DateTime!
+  picture: String
 }
 
 """
@@ -18,13 +19,29 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+"""news"""
+type NewsModel {
+  id: ID!
+  newsname: String!
+  email: String!
+  password: String!
+  firstname: String!
+  lastname: String!
+  birthday: DateTime!
+  picture: String
+}
+
 type Query {
-  ImGreeting: String!
-  users: [UserModel!]!
+  getUser(id: String!): UserModel!
+  getUsers: [UserModel!]!
+  getNews: [NewsModel!]!
 }
 
 type Mutation {
   createUser(input: CreateUserInput!): UserModel!
+  updateUser(updateUserInput: UpdateUserInput!): UserModel!
+  removeUser(id: String!): UserModel!
+  createNews(input: CreateNewsInput!): NewsModel!
 }
 
 input CreateUserInput {
@@ -34,4 +51,27 @@ input CreateUserInput {
   firstname: String!
   lastname: String!
   birthday: DateTime!
+  picture: String
+}
+
+input UpdateUserInput {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  firstname: String!
+  lastname: String!
+  birthday: DateTime!
+  picture: String!
+}
+
+input CreateNewsInput {
+  id: ID!
+  newsname: String!
+  email: String!
+  password: String!
+  firstname: String!
+  lastname: String!
+  birthday: DateTime!
+  picture: String!
 }

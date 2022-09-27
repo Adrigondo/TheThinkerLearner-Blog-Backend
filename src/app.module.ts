@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { NewsModule } from './news/news.module';
 
 
 @Module({
@@ -24,8 +25,8 @@ import { UsersModule } from './users/users.module';
     }),
     MongooseModule.forRoot((new ConfigService).get("DATABASE_URI")),
 
-
     UsersModule,
+    NewsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

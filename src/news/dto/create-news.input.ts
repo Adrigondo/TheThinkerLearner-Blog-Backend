@@ -1,10 +1,14 @@
 import { Field, InputType, Int, ID, DateScalarMode} from '@nestjs/graphql';
 import { IsOptional, Length, MaxLength } from 'class-validator';
+import { type } from 'os';
 
 @InputType()
-export class CreateUserInput {
+export class CreateNewsInput {
+  @Field(type => ID)
+  id: string;
+
   @Field()
-  username: string;
+  newsname: string;
 
   @Field()
   email: string;
@@ -21,19 +25,7 @@ export class CreateUserInput {
   @Field()
   birthday: Date;
 
-  @Field({nullable:true})
+  @Field()
   @IsOptional()
-  picture?: string;
-  
-  /* @Field()
-  @MaxLength(30)
-  title: string;
-
-  @Field({ nullable: true })
-  @IsOptional()
-  @Length(30, 255)
-  description?: string;
-
-  @Field(type => [String])
-  ingredients: string[]; */
+  picture: string;
 }

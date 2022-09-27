@@ -1,41 +1,29 @@
 import { Directive, Field, ID, ObjectType, Int } from '@nestjs/graphql';
 import { type } from 'os';
 
-@ObjectType({ description: 'user' })
+@ObjectType()
 export class UserModel {
   @Field(type => ID)
   id: string;
   
   @Field()
-  username!: string;
+  username: string;
 
   @Field()
-  email!: string;
+  email: string;
 
   @Field()
-  password!: string;
+  password: string;
 
   @Field()
-  firstname!: string;
+  firstname: string;
 
   @Field()
-  lastname!: string;
+  lastname: string;
 
   @Field()
-  birthday!: Date;
+  birthday: Date;
 
-  /* @Field(type => ID)
-  id: string;
-  
-  @Directive('@upper')
-  title: string;
-
-  @Field({ nullable: true })
-  description?: string;
-
-  @Field()
-  creationDate: Date;
-
-  @Field(type => [String])
-  ingredients: string[]; */
+  @Field({nullable: true})
+  picture?: string;
 }

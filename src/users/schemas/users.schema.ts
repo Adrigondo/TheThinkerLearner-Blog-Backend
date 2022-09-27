@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
 import { Type, Transform, Exclude } from 'class-transformer';
 import { News } from 'src/news/schemas/news.schema';
 
@@ -8,7 +8,7 @@ export type UserDocument = User & Document;
 @Schema()
 export class User {
   @Transform(({ value }) => value.toString())
-  _id: string;
+  _id: ObjectId;
 
   @Prop()
   username: string;
@@ -37,10 +37,3 @@ export class User {
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
-/* UserSchema.virtual('news', {
-  ref: 'News',
-  localField: '_id',
-  foreignField: 'author',
-}); */
-
-// export {UserSchema};

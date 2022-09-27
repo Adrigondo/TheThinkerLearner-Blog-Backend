@@ -1,5 +1,7 @@
 import { Directive, Field, ID, ObjectType, Int } from '@nestjs/graphql';
+import { Type } from 'class-transformer';
 import { type } from 'os';
+import { User } from 'src/users/schemas/users.schema';
 
 @ObjectType({ description: 'news' })
 export class NewsModel {
@@ -14,5 +16,9 @@ export class NewsModel {
 
   @Field()
   picture: string;
+
+  /* @Field(type=>User)
+  @Type(()=>User)
+  author: User; */
 
 }

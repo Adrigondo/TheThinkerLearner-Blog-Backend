@@ -7,6 +7,9 @@ export type NewsDocument = News & Document;
 
 @Schema()
 export class News {
+  @Transform(({ value }) => value.toString())
+  _id: ObjectId;
+
   @Prop()
   title: string;
 
@@ -18,7 +21,7 @@ export class News {
 
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
-    ref: User.name
+    ref: 'User',
   })
   @Type(()=>User)
   author: User;

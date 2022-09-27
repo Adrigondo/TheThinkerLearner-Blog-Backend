@@ -2,7 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-"""user"""
 type UserModel {
   id: ID!
   username: String!
@@ -22,13 +21,9 @@ scalar DateTime
 """news"""
 type NewsModel {
   id: ID!
-  newsname: String!
-  email: String!
-  password: String!
-  firstname: String!
-  lastname: String!
-  birthday: DateTime!
-  picture: String
+  title: String!
+  content: String!
+  picture: String!
 }
 
 type Query {

@@ -26,7 +26,7 @@ export class NewsResolver {
 
 
   @Mutation(() => NewsModel)
-  async updateNews(@Args('updateNewsInput') updateNewsInput: UpdateNewsInput) {
+  async updateNews(@Args('input') updateNewsInput: UpdateNewsInput) {
     return this.newsService.update(updateNewsInput.id, updateNewsInput);
   }
 

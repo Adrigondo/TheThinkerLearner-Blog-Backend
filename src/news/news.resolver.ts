@@ -21,6 +21,7 @@ export class NewsResolver {
 
   @Mutation(()=>NewsModel)
   async createNews(@Args('input') createNewsInput:CreateNewsInput){
+    console.log(createNewsInput);
     return this.newsService.create(createNewsInput);
   }
 

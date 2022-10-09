@@ -6,11 +6,9 @@ import { type } from 'os';
 export class CreateNewsInput {
 
   @Field()
-  @IsOptional()
   title: string;
 
   @Field()
-  @IsOptional()
   content: string;
 
   @Field()

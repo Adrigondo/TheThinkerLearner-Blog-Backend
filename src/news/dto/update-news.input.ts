@@ -9,9 +9,11 @@ export class UpdateNewsInput {
   id: string;
 
   @Field()
+  @IsOptional()
   title: string;
 
   @Field()
+  @IsOptional()
   content: string;
 
   @Field()

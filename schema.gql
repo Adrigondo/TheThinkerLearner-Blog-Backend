@@ -37,10 +37,10 @@ type Query {
 
 type Mutation {
   createUser(input: CreateUserInput!): UserModel!
-  updateUser(updateUserInput: UpdateUserInput!): UserModel!
+  updateUser(input: UpdateUserInput!): UserModel!
   removeUser(id: String!): UserModel!
   createNews(input: CreateNewsInput!): NewsModel!
-  updateNews(updateNewsInput: UpdateNewsInput!): NewsModel!
+  updateNews(input: UpdateNewsInput!): NewsModel!
   removeNews(id: String!): NewsModel!
 }
 

@@ -4,10 +4,11 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  // app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.enableCors();
-  await app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
-    console.log("Server is running.");
+  const PORT = process.env.PORT || 3000;
+  await app.listen(PORT, () => {
+      console.log(`Our app is running on port ${ PORT }`);
   });
 }
 bootstrap();

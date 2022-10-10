@@ -19,6 +19,8 @@ import { NewsModule } from './news/news.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
+      introspection: true,
+      playground: true
       // PRODUCTION MODE:
       // debug: false,
       // playground: false,
